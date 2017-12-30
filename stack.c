@@ -1,7 +1,6 @@
 // C program for array implementation of stack
 #include<stdio.h>
 #include<stdlib.h>
-#define bool int
  
 /* structure of a stack node */
 struct sNode
@@ -14,8 +13,7 @@ struct sNode
 void push(struct sNode** top_ref, int new_data)
 {
   /* allocate node */
-  struct sNode* new_node =
-            (struct sNode*) malloc(sizeof(struct sNode));
+  struct sNode* new_node = (struct sNode*) malloc(sizeof(struct sNode));
  
   if (new_node == NULL)
   {
