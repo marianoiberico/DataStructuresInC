@@ -11,17 +11,6 @@ struct sNode
 };
  
 /* Function to push an item to stack*/
-void push(struct sNode** top_ref, int new_data);
- 
-/* Function to pop an item from stack*/
-int pop(struct sNode** top_ref);
- 
-
- 
-/* UTILITY FUNCTIONS */
-/*driver program to test above functions*/
-
-/* Function to push an item to stack*/
 void push(struct sNode** top_ref, int new_data)
 {
   /* allocate node */
