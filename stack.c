@@ -1,5 +1,4 @@
 // C program for array implementation of stack
-#include <stdio.h>
 #include<stdio.h>
 #include<stdlib.h>
 #define bool int
