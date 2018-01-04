@@ -38,6 +38,40 @@ unsigned short Count(void){ node_t *pt;
   return(cnt);
 };
 
+//If faced with a sorted list, and want to keep it that way
+int InsertData(unsigned short info){ 
+node_t *firstPt,*secondPt,*newPt;
+  newPt = malloc(sizeof(node_t));  // create a new entry
+  if(newPt){
+    newPt->data = info;              // store data
+    if(HeadPt==0){   // case 1
+      newPt->next = HeadPt;   // only element
+      HeadPt = newPt;
+      return(1);
+    }
+    if(info<=HeadPt->data){ // case 2
+      newPt->next = HeadPt;   // first element in list
+      HeadPt = newPt;
+      return(1);
+    }
+    firstPt = HeadPt;   // search from beginning
+    secondPt = HeadPt->next; 
+    while(secondPt){
+      if(info <= secondPt->data){ // case 3
+        newPt->next = secondPt;   // insert element here
+        firstPt->next = newPt;
+        return(1);
+      }
+      firstPt = secondPt;   // search next
+      secondPt = secondPt->next; 
+    }
+    newPt->next = secondPt;   // case 4, insert at end
+    firstPt->next = newPt;
+    return(1);
+  }
+  return(0);      // out of memory
+};
+
 int Remove(unsigned short info){ 
 node_t *firstPt,*secondPt;
   if(HeadPt==0)  // case 1
